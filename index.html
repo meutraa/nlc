@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body onload="onLoaded();">
+    <h2>New Leaf Collectables</h2>
+     v0.2.0 <a href="CHANGELOG">changelog</a> <a href="LICENSE">license</a>
+    <br>
+    <br>
+    <table id="filters">
+    <tr>
+        <td><input type="checkbox" onclick="three(this, elements[1], elements[2]);"  id="fish" checked>Fish</td>
+        <td><input type="checkbox" onclick="two(this, elements[6]);"  id="island" checked>Island Resort</td>
+        <td><input type="checkbox" onclick="two(this, elements[3]);" id="dry" value="1" checked>Dry</td>
+        <td><input type="checkbox" onclick="two(this, elements[8]);" id="caught" checked>Caught</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" onclick="three(this, elements[0], elements[2]);"  id="bugs" checked>Bugs</td>
+        <td><input type="checkbox" onclick="two(this, elements[5]);" id="mainland" checked>Mainland</td>
+        <td><input type="checkbox" onclick="two(this, elements[4]);" id="rain" checked>Rain</td>
+        <td><input type="checkbox" onclick="two(this, elements[7]);" id="uncaught" checked>Uncaught</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" onclick="three(this, elements[0], elements[1]);" onchange="updateResults();" id="dscs" checked>Deep Sea Creatures</td>
+        <td></td>
+        <td><button type="button" onclick="setTime();">Current Time</button></td>
+        <td><button type="button" onclick="resetEl(true);">Reset Filters</button></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="border-top-width:1px;">
+            <input type="range" id="month" min="0" max="12" step="1" oninput="setText('monthText', m[this.value]);" onchange="updateResults();" value="12">
+            <span id=monthText>All Months</span>
+        </td>
+        <td colspan="2" style="border-top-width:1px;">
+            <input type="range" id="hour" min="0" max="24" step="1" oninput="setText('hourText', hours[this.value]);" onchange="updateResults();" value="24">
+            <span id=hourText>All Hours</span>
+        </td>
+    </tr>
+    </table>
+    <br>
+    <input type="text" placeholder="search" id="search" oninput="search(this.value);updateResults();">
+    <select onchange="">
+        <option value="name">Name</option>
+        <option value="location">Location</option>
+        <option value="price">Sell price</option>
+    </select>
+    <select onchange="">
+        <option value="asc">Asc</option>
+        <option value="desc">Desc</option>
+    </select>
+    <table id="table" width="90%">
+        <tr>
+            <th>Have</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Hours</th>
+            <th>Months</th>
+            <th>Price</th>
+            <th>Size</th>
+        </tr>
+    </table>
+    <!--Load scripts last as not to block rendering with downloads-->
+    <script src="collectables.js"></script>
+    <script src="collectables-data.js"></script>
+</body>
+</html>

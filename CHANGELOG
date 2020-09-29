@@ -1,0 +1,10 @@
+###0.2.0
+    Switched to html5 table
+    Modified text for hours and month sliders
+    Table has alternating colors
+    Filters inside a table
+    Increased performance of filtering
+    Reduced memory requirement
+
+###0.1.0
+    Initial version
